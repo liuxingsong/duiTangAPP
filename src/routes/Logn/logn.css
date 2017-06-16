@@ -1,0 +1,41 @@
+
+/*未登录的css*/
+:global(header.Mine-header){height: 90px;width:100%;font-size:36px;line-height: 90px;
+    border-bottom: 2px solid rgb(245, 245, 245);
+    padding: 0 30px;position:fixed;top:0; background-color: white;box-sizing: border-box;}
+:global(header.Mine-header a.iconfont){float:right;display: inline-block;width:54px;font-size:46px;
+    line-height:90px;}
+
+:global(.No-login-index){padding:280px 80px;text-align:center;}
+:global(.No-login-index img){display: inline-block;}
+:global(.No-login-text){line-height:40px;padding: 24px 0 60px 0;}
+
+:global(.No-login-index input){width:210px;height:66px;background-color:#e64a34;
+    border-radius: 10px;border:1px solid #e64a34;}
+:global(.No-login-index .register-btn){margin-right:26px;color:white;}
+:global(.No-login-index .login-btn){background-color:white;color:#e64a34;}
+
+/*登录和注册同时使用同一种css*/
+:global(.Login-box){background:white;position:relative;top:0;bottom:0;}
+
+:global(.Login-return){float:left;line-height:90px;width:80px;font-size:40px;}
+:global(.Login-header){height: 90px;width:100%;font-size:36px;line-height: 90px;
+    border-bottom: 2px solid rgb(245, 245, 245);
+    padding: 0 30px;position:fixed;top:0; background-color: white;box-sizing: border-box;}
+
+:global(.Login-index){position:fixed;top:92px;bottom:0;width:100%;}
+:global(.Login-index ul){width:100%;height:100%;background-color:white;}
+:global(.login-welcome){text-align: center;padding:100px 0;font-size:40px;font-weight: bold;}
+:global(.login-input){padding:0 30px;}
+:global(.login-input input){border-top:none;border-left:none;border-right:none;border-bottom:1px solid #ccc;
+    width:100%;line-height:90px;}
+:global(.login-word){padding:0 30px;overflow: hidden;}
+:global(.login-word a){float:right;color:#666;line-height:60px;font-size:20px;}
+:global(.login-login){padding:0 30px;}
+:global(.login-login input){width:100%;height:74px;color:white;background-color:rgba(255, 23, 34, 0.3);border:none;border-radius:8px;}
+:global(.login-other){text-align: center;font-size:18px;padding:100px 0;}
+:global(.login-register){position:absolute;bottom:80px;text-align: center;width:100%;}
+:global(.login-to){color:red;}
+:global(.login-agree){position:absolute;bottom:80px;text-align: center;width:100%;font-size: 20px;}
+:global(.login-for){color:red;font-size: 20px;}
+

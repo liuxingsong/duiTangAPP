@@ -1,0 +1,3 @@
+:global(.Order-choose){position:fixed;top:72px;bottom:0;width:100%;}
+:global(.tabs .am-tabs-tab-active) {color: red; }
+:global(.tabs .am-tabs-ink-bar){background-color:red;}

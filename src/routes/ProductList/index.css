@@ -1,0 +1,47 @@
+.content { background-color: #eee }
+.proTab{padding-top:90px;padding-bottom: 100px;}
+
+.proTabConent{
+	display: 'flex';
+	alignItems: 'center';
+	justifyContent: 'center';
+	-height: 800px;
+	min-height: 800px;
+	background:#fff;
+}
+.proTabCommonity{
+	display: 'flex';
+	alignItems: 'center';
+	justifyContent: 'center';
+	-height: 800px;
+	min-height: 800px;
+	background:#fff;
+}
+
+.proTabCommonity ul li{
+	list-style: none;
+	border-bottom: 1px solid #ddd;
+	display: flex;
+}
+.proTabCommonity ul li img{
+	width:200px;
+	height:200px;
+	margin:10px;
+}
+.proTabAttention{
+	display: 'flex';
+	alignItems: 'center';
+	justifyContent: 'center';
+	-height: 600px;
+	min-height: 600px;
+	background:#fff;
+}
+:global(.tabs1 .am-tabs-tab-active){
+	color: red;
+}
+:global(.tabs1 .am-tabs-ink-bar){
+	background: red;
+}
+
+
+

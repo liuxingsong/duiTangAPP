@@ -1,0 +1,5 @@
+
+.contentList{width: 100%; margin: 20px 0; background: #e6e6e6;height: 380px; text-align: center}
+.contentList img{  width: 100%; height: 290px; background: rgba(255, 0, 0, 0.5);}
+.contentList p{font-size: 34px;}
+.contentList span{ font-size: 18px; color: #999}

@@ -1,0 +1,22 @@
+:global(.navBar){ border-bottom:1px solid #e6e6e6}
+.content{ position: absolute;top: 90px;}
+.gridList{ width: 100%; overflow: hidden;margin-bottom: 20px; background: #fff;}
+.gridList li{ float:left; width: 33%; height: 80px; line-height: 80px; text-align: center;
+  border-right: 1px solid #e6e6e6;border-bottom:1px solid #e6e6e6 }
+.gridList li:nth-of-type(3n+3){border-right: 0}
+.gridList li:nth-of-type(n+7){border-bottom: 0}
+
+.sortwhys{width: 92%;background: #fff;height: 90px;padding: 0 4%;border-bottom: 1px solid #e6e6e6}
+.sortwhys li{float: left;width: 25%;text-align: center;line-height: 90px;}
+
+.goodsList{ width: 96%; padding-left: 4% ; background: #fff;overflow: hidden;}
+.goodsList li{ width: 46%; float: left; padding-right: 4%;position: relative;}
+.goodsList li img{ display: block;width: 100%; height: 300px; background: #e6e6e6;margin: 20px auto}
+.goodsList li p{ font-size: 28px; font-weight: 600; color: #000; letter-spacing:1px; line-height: 36px}
+.goodsList li span{ display: inline-block; width: 100%; height: 62px; font-size: 26px; color: #999999; line-height: 30px;
+  letter-spacing:1px; white-space: pre-line; text-overflow: ellipsis; overflow: hidden;}
+.goodsList li b{ display: inline-block; padding-top: 30px; padding-bottom: 15px; font-size: 16px; color: #999999;
+  letter-spacing:1px; font-weight: 500 }
+.goodsList li i{ font-size: 28px; color: red; letter-spacing:1px; font-style: normal; display: block;
+  margin-bottom: 20px}
+.listLine{ position: absolute; bottom: 0; left: 50%; margin-left: -100px; border-bottom: 1px solid #e6e6e6; width: 180px}

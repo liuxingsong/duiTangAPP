@@ -1,0 +1,6 @@
+
+.newGoods{display: flex;padding-left: 0;background: #FFFFFF;border-top: 1px solid #e6e6e6;border-bottom: 1px solid #e6e6e6;}
+.newGoods li{display: flex;flex-direction: column;width: 33%;align-items: center;padding:30px 0;border-right:1px solid #e6e6e6 ;}
+.newGoods li:nth-of-type(3){border-right:0 ;}
+.newGoods li img{width: 80px;height: 80px;display: block;margin: 10 auto;}
+.newGoods li span{font-size: 7px;color: #999999;display: inline-block;line-height: 44px;}

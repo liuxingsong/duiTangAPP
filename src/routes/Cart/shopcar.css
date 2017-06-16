@@ -1,0 +1,21 @@
+
+.content { background:#eee }
+.cart-list { padding: 90px 0 100px 0; background: #eee}
+.cart-item { padding: 20px 0; margin: 10px 0; background-color: #fff}
+
+.pic img {width: 200px; height: 200px; display: block}
+
+:global(.cart-page .am-navbar) { position: fixed; width: 100%; z-index: 90}
+
+
+
+
+:global(.shop-car-footer){position:fixed;bottom:0;width:100%;line-height:90px;background-color:white;}
+:global(.shop-car-footer .choose-all){float:left;line-height:90px;padding: 0 20px ;
+    color:#e64a34;font-size:36px;}
+:global(.shop-car-footer .shop-car-price){float:right;height:90px;padding-right: 20px;}
+:global(.shop-car-price .shop-car-one){line-height:50px;color:#666;}
+:global(.shop-car-price .shop-car-one .shop-car-allprice){color:#000;}
+:global(.shop-car-price .shop-car-two){line-height:30px;color:#666;font-size: 20px;text-align: right;}
+:global(.shop-car-footer .shop-car-end){float:right;line-height:90px;width:200px;
+    background-color:#e64a34;color:white;text-align: center;}

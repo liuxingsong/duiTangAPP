@@ -1,0 +1,9 @@
+* { margin: 0; padding: 0;}
+li { list-style: none}
+
+
+.footer { position: fixed;  bottom:0;left: 0; width: 100%;background-color: #fff;line-height: 44px; border-top: 1px solid #ccc; text-align: center;}
+.footer li { float: left; width: 33%;}
+.footer .active  { font-weight: bold; color: skyblue}
+
+.footer ~ .content { padding-bottom: 45px;}
