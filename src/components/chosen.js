@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-
+import {hashHistory} from 'react-router'
 import style from "./chosen.css";
 
 class Chosen extends Component {
@@ -18,7 +18,10 @@ class Chosen extends Component {
       	});
    		})
    	}
-
+		goToGoodsDetail(id){
+			hashHistory.push(`/goodsDetail/${id}`)
+			// console.log(id)
+		}
     render(){
   		return <div className={style['chosenList']}>
       {
@@ -28,7 +31,7 @@ class Chosen extends Component {
             <ul>
             {
               ele.rec_list&&ele.rec_list.map((el,ind)=>{
-                return <li key={ind}>
+                return <li key={ind} onClick={()=>this.goToGoodsDetail(el.id)}>
                   <img src=""/>
                   <p>{el.inventory_caption}</p>
                   <span>{el.inventory_name}</span><br/>

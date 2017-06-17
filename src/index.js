@@ -13,6 +13,8 @@ import Home from './routes/Home';
 
 import SpecialColumn from './routes/Shopping/specialColumn';
 import GridListDetail from './routes/Shopping/gridListDetail';
+import GoodsDetailPage from './routes/Shopping/goodsDetail'
+import NewGoodsPage from './routes/Shopping/newGoods'
 
 import Mine from './routes/Mine/mine';
 import Nologn from './routes/Logn/nologn';
@@ -32,8 +34,11 @@ const App = ()=>{
                 <Route path="shopping" component={Shopping } />
                 <Route path="nologn" component={Nologn}/>
             </Route>
+
             <Route path="/specialColumn" component={SpecialColumn}/>
             <Route path="/gridDetail(/:id)(/:value)(/:name)" component={GridListDetail}/>
+            <Route path="/goodsDetail(/:id)" component={GoodsDetailPage}/>
+            <Route path="/newGoods" component={NewGoodsPage}/>
 
             <Route path="/register" component={Register}/>
             <Route path="/login" component={Login}/>

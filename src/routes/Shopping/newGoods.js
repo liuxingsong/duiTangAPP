@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import {hashHistory} from 'react-router'
-import style from "./specialColumn.css";
+import style from "./newGoods.css";
 import {NavBar,Icon,ListView,RefreshControl,Toast} from "antd-mobile";
 
 
@@ -14,9 +14,9 @@ const RenderRow = (contentData) => {
 	</div>
 }
 
-class SpecialColumn extends Component {
+class NewGoodsPage extends Component {
 		state={
-      title:"专题",
+      title:"新品速递",
       pageNum:1,
       refreshing:false
     }
@@ -24,11 +24,11 @@ class SpecialColumn extends Component {
       hashHistory.push(`/shopping`)
     }
 		render(){
-      const {specialColumnData} = this.props
+      const {newGoodsData} = this.props
       const ds = new ListView.DataSource({
         rowHasChanged:(row1,row2)=>row1 !== row2
       })
-      const dataSource = ds.cloneWithRows(specialColumnData)
+      const dataSource = ds.cloneWithRows(newGoodsData)
       return (
           <div>
                <NavBar
@@ -65,7 +65,7 @@ class SpecialColumn extends Component {
   }
   onRefresh(){
       this.setState({ refreshing: true });
-      this.props.dispatch(getSpecialColumnData(()=>{
+      this.props.dispatch(getNewGoodsData(()=>{
         this.setState({
           pageNum:1,
           refreshing: false
@@ -83,15 +83,15 @@ class SpecialColumn extends Component {
         loading:true,
         pageNum:++num
       })
-      this.props.dispatch(getSpecialColumnMoreData(num,()=>{this.loading=false;Toast.hide()}))
+      this.props.dispatch(getNewGoodsMoreData(num,()=>{this.loading=false;Toast.hide()}))
     }
 
     componentDidMount(){
-      this.props.dispatch(getSpecialColumnData())
+      this.props.dispatch(getNewGoodsData())
     }
 }
 
-const getSpecialColumnMoreData =(num,callback)=>{//获取更多数据
+const getNewGoodsMoreData =(num,callback)=>{//获取更多数据
   return (dispatch)=>{
     return fetch(`/napi/column/detail/by_heap_name/?heap_name=%E4%B8%93%E6%A0%8F_%E6%9C%89%E6%96%99&start=${num*5}&limit=5&timestamp=1497427089000`,{timeout:'10000'})
   .then((res)=>{
@@ -99,25 +99,25 @@ const getSpecialColumnMoreData =(num,callback)=>{//获取更多数据
   }).then((data)=>{
     callback()
     dispatch({
-      type:"getSpecialColumnMoreData",
+      type:"getNewGoodsMoreData",
       payload:{
         total:data.data.total,
-        specialColumnData:data.data.object_list
+        newGoodsData:data.data.object_list
       }
     })
   })
 }}
 
-const getSpecialColumnData = (callback)=>{//首次渲染数据
+const getNewGoodsData = (callback)=>{//首次渲染数据
   return (dispatch)=>{
     return fetch("/napi/column/detail/by_heap_name/?heap_name=%E4%B8%93%E6%A0%8F_%E6%9C%89%E6%96%99&start=0&limit=4&timestamp=1497427089000",{timeout:'10000'})
     .then((res)=>{
       return res.json()
     }).then((data)=>{
       callback&&callback()
-      dispatch({type:'getSpecialColumnData',payload:{
+      dispatch({type:'getNewGoodsData',payload:{
         total:data.data.total,
-        specialColumnData:data.data.object_list
+        newGoodsData:data.data.object_list
       }})
     })
   }
@@ -125,9 +125,9 @@ const getSpecialColumnData = (callback)=>{//首次渲染数据
 
 var mapStateToProps = (state)=>{//数据回传
   return {
-    specialColumnData:state.specialColumnReducer.specialColumnData,
+    newGoodsData:state.specialColumnReducer.newGoodsData,
     total:state.specialColumnReducer.total
   }
 }
 
- export default connect(mapStateToProps)(SpecialColumn)
+ export default connect(mapStateToProps)(NewGoodsPage)

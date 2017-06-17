@@ -99,7 +99,7 @@ class Cart extends Component {
                         {/*<Icon key="0" type={require("../../svg/icon-core/map.svg")} />*/}
                     {/*]}*/}
                 {/*>购物车 {total.num};{total.price}</NavBar>*/}
-                <header className="Login-header"><Link to="/cart" className="iconfont Login-return">&#xe65a;</Link>购物车</header>
+                <header className="Login-header"><Link to="/shopping" className="iconfont Login-return">&#xe65a;</Link>购物车</header>
                 <Stepper style={{display:"none" }}/>
                 <CartList cartData={cartData} dispatch={dispatch} />
                 <footer className="shop-car-footer">

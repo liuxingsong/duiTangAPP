@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
-
+import {hashHistory} from 'react-router'
 import style from "./gridListDetail.css";
 import {NavBar} from "antd-mobile";
 
@@ -12,12 +12,15 @@ class GridListDetail extends Component {
       gridData:['1','2'],
       title:this.props.params.name
     }
+    back() {
+      hashHistory.push(`/shopping`)
+    }
 		render(){
       return (
           <div className={style['gridListPage']}>
             <NavBar leftContent={this.state.title} mode="light"
                className='navBar'
-               onLeftClick={() => console.log('onLeftClick')}
+               onLeftClick={() => this.back()}
             ></NavBar>
             <div className={style['content']}>
                 <ul className={style['gridList']}>{
@@ -32,7 +35,7 @@ class GridListDetail extends Component {
                 <ul className={style['goodsList']}>{
                     this.props.goodsListData.map((ele,index)=>{
                       return <li>
-                        <Link href={ele.banner_link}><img src={ele.pictures[0]}/></Link>
+                        <Link href={ele.banner_link}><img src=""/></Link>
                         <p>{ele.inventory_caption}</p>
                         <span>{ele.inventory_name}</span><br/>
                         <b>已售 {ele.sold_quantity}</b><br/>

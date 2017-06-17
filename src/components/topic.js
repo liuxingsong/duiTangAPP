@@ -1,13 +1,13 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-
+import {hashHistory} from 'react-router'
 import style from "./topic.css";
 
 
 class Topic extends Component {
 	state = {
 			topicData:['1'],
-			topicDatatwo:['2'],
+			// topicDatatwo:['2'],
       topicDatathree:['3']
   	}
     componentDidMount() {
@@ -20,16 +20,16 @@ class Topic extends Component {
           topicData: data.data.object_list
       	});
    		})
-			fetch("/napi/buy/index/popular/list/?limit=1&start=3&timestamp=1497354943000")
-   		.then((res)=>{
-   			return res.json()
-   		})
-   		.then((data)=>{
-
-   			this.setState({
-          topicDatatwo: data.data.object_list[0].column_list
-      	});
-   		})
+			// fetch("/napi/buy/index/popular/list/?limit=1&start=3&timestamp=1497354943000")
+   	// 	.then((res)=>{
+   	// 		return res.json()
+   	// 	})
+   	// 	.then((data)=>{
+			//
+   	// 		this.setState({
+      //     topicDatatwo: data.data.object_list[0].column_list
+      // 	});
+   	// 	})
 			fetch("/napi/buy/index/popular/list/?limit=3&start=0&timestamp=1497354943000")
    		.then((res)=>{
    			return res.json()
@@ -41,7 +41,10 @@ class Topic extends Component {
       	});
    		})
    	}
-
+		goToGoodsDetail(id){
+			hashHistory.push(`/goodsDetail/${id}`)
+			// console.log(id)
+		}
     render(){
   		return <div className={style['topic']}>
   			<h2 className={style['topicTitle']}>-专题-</h2>
@@ -61,7 +64,7 @@ class Topic extends Component {
 								{
 									ele.inventory_list&&ele.inventory_list.map((el,indx)=>{
 											if(indx<=7){
-												return <li key={indx}>
+												return <li key={indx} onClick={()=>this.goToGoodsDetail(el.id)}>
 												<img src=""/>
 												<p>{el.inventory_caption}</p>
 												<span>${el.origin_price}</span>
@@ -75,24 +78,6 @@ class Topic extends Component {
 						</div>
 					})
 				}
-				</div>
-
-				<div className={style['columnList']} id="topicListTwo">
-					<div className={style['columnContent']}>
-						<ul>
-							{
-									this.state.topicDatatwo.map((ele,index)=>{
-										return <li key={index}>
-
-											<img src=""/>
-											<span>{ele.columnName}</span>
-											<h4>{ele.title}</h4>
-										</li>
-								 })
-							}
-							<div className={style['seeMore']}>查看更多</div>
-						</ul>
-					</div>
 				</div>
 
 
@@ -112,7 +97,7 @@ class Topic extends Component {
 			  				{
 									ele.inventory_list&&ele.inventory_list.map((el,indx)=>{
 											if(indx<=7){
-												return <li key={indx}>
+												return <li key={indx} onClick={()=>this.goToGoodsDetail(el.id)}>
 
 												<img src=""/>
 												<p>{el.inventory_caption}</p>

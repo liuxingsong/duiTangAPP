@@ -1,0 +1,49 @@
+.goodsDetailPage{
+  position: relative;
+}
+.content{
+  position: absolute;
+  top: 90px;
+}
+.showImg{
+  width: 100%;
+  height: 400px;
+  background: #e6e6e6
+}
+.priceMsg{
+  height: 100px;
+  line-height: 100px;
+  padding: 0 20px
+}
+.priceMsg span{
+  float: left;
+}
+.priceMsg span:nth-of-type(2){
+  color: red
+}
+.priceMsg span:last-of-type{
+  float: right;
+}
+.endTime{
+  height: 70px;
+  line-height: 70px;
+  margin-left: 20px;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb
+}
+.detailMsg{
+  padding: 20px
+}
+.detailMsg p{
+  font-size: 28px;
+  line-height: 44px
+}
+.detailMsg h3{
+  font-size: 36px;
+  margin-bottom: 20px
+}
+.detailMsg span{
+  color: #666;
+  font-size: 24px;
+  line-height: 44px;
+}

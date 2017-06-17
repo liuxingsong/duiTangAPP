@@ -77,4 +77,16 @@ const cartReducer = (state={cartData:[1,2,3],allSelected:false},action)=>{
             return state
     }
 };
-export {specialColumnReducer,goToDetailReducer,cartReducer}
+
+const goodsDetaiLReducer = (state={goodsDetailMsg:['1','2']},action)=>{
+  switch (action.type) {
+    case 'getGoodsDetailMsg':
+        return Object.assign({},state,{
+          goodsDetailMsg:action.payload.goodsDetailMsg
+        })
+    default:
+      return state
+
+  }
+}
+export {specialColumnReducer,goToDetailReducer,cartReducer,goodsDetaiLReducer}
