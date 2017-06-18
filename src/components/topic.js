@@ -11,7 +11,7 @@ class Topic extends Component {
       topicDatathree:['3']
   	}
     componentDidMount() {
-   		fetch("/napi/buy/index/popular/list/?limit=11&start=4&timestamp=1497354943000")
+   		fetch("/napi/buy/index/popular/list/?limit=11&start=7&timestamp=1497354943000")
    		.then((res)=>{
    			return res.json()
    		})
@@ -30,7 +30,7 @@ class Topic extends Component {
       //     topicDatatwo: data.data.object_list[0].column_list
       // 	});
    	// 	})
-			fetch("/napi/buy/index/popular/list/?limit=3&start=0&timestamp=1497354943000")
+			fetch("/napi/buy/index/popular/list/?limit=5&start=0&timestamp=1497354943000")
    		.then((res)=>{
    			return res.json()
    		})
