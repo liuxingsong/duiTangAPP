@@ -29,7 +29,7 @@ class BannerImg extends Component {
     	const hProp = this.state.initialHeight ? { height: this.state.initialHeight } : {};
   		return  <Carousel
 			 className={style['my-carousel']}
-			 autoplay={false}
+			 autoplay={true}
 			 infinite
 			 selectedIndex={1}
 			 swipeSpeed={35}

@@ -1,7 +1,7 @@
 
 .content { background:#eee }
 .cart-list { padding: 90px 0 100px 0; background: #eee}
-.cart-item { padding: 20px 0; margin: 10px 0; background-color: #fff}
+.cart-item { padding: 20px 0; margin: 10px 0; background-color: #fff;position: relative;}
 
 .pic img {width: 200px; height: 200px; display: block}
 
