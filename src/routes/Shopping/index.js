@@ -19,8 +19,7 @@ class Index extends Component {
                     iconName={false}
                     mode="light"
                     rightContent={[
-
-                        <Link to={'/shopcar'}>购物车</Link>
+                        <Link to={'/shopcar'} style={{color:"#108ee9"}}>购物车</Link>
                     ]}
                   ></NavBar>
                   <div className={style.content}>

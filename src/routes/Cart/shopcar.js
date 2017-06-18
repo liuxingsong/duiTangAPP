@@ -39,7 +39,9 @@ const CartList =({cartData,dispatch})=>{
                         onClose={() => console.log('global close')}
                     >
                         <Flex  className={style['cart-item']}>
-                            <Checkbox checked={rowData.selected}  onChange={()=>{
+                            <Checkbox checked={rowData.selected}
+                            style={{position:"absolute",right:'10px',top:"10px"}}
+                             onChange={()=>{
                                 //派发 单选的 action
                                 dispatch({
                                     type:"CHANGE_ITEM_SELECTED",
@@ -48,11 +50,11 @@ const CartList =({cartData,dispatch})=>{
                             }} />
                             <a className={style.pic}><img src={rowData.goodsListImg}/></a>
                             <Flex.Item>
-                                <p>{rowData.goodsName}</p>
+                                <p style={{width:"70%"}}>{rowData.goodsName}</p>
                                 <p>{rowData.price}</p>
                                 <div>
                                     <Stepper
-                                        style={{ width: '100%', minWidth: '2rem' }}
+                                        style={{ width: '25%', minWidth: '2rem',position:"absolute",right:'10px',bottom:'5px' }}
                                         showNumber
                                         max={100}
                                         min={1}
@@ -70,19 +72,13 @@ const CartList =({cartData,dispatch})=>{
                 </li>)
             }
         </ul>
-
-
-
-
     )
 };
 
 class Cart extends Component {
     render(){
-
         const {cartData,allSelected,dispatch} = this.props;
         const total = this.getTotal(cartData); //获取总数量和金额
-        console.log(total);
         return (
             <div className="cart-page">
                 {/*<NavBar*/}
@@ -99,7 +95,10 @@ class Cart extends Component {
                         {/*<Icon key="0" type={require("../../svg/icon-core/map.svg")} />*/}
                     {/*]}*/}
                 {/*>购物车 {total.num};{total.price}</NavBar>*/}
-                <header className="Login-header"><Link to="/shopping" className="iconfont Login-return">&#xe65a;</Link>购物车</header>
+                <header className="Login-header" style={{color:"#108ee9",fontSize:"16px"}}><Link to="/shopping"
+                  className="iconfont Login-return"
+                  style={{color:"#108ee9",fontSize:"22px"}}
+                >&#xe65a;</Link>购物车</header>
                 <Stepper style={{display:"none" }}/>
                 <CartList cartData={cartData} dispatch={dispatch} />
                 <footer className="shop-car-footer">
@@ -118,10 +117,9 @@ class Cart extends Component {
         this.props.dispatch(getCartData())
     }
     getTotal(data){
-
         var num = 0;
         var price = 0;
-        console.log(data);
+        // console.log(data);
         //循环计算总数量，金额
         data.forEach(e=>{
             //如果li被选中 才会计算它的金额和数量
@@ -130,14 +128,9 @@ class Cart extends Component {
                 price+=e.number*e.price
             }
         });
-
         return {num,price}
-
     }
-
 }
-
-
 //获取购物车数据
 const getCartData =()=>dispatch=>{
     Toast.loading('加载中...');
@@ -162,7 +155,6 @@ const changeCartNum=(id,index,num)=>dispatch=>{
         .then(res=>res.json())
         .then(data=>{
             Toast.hide()
-
             //派发action
             dispatch({type:"CART_CHANGE_NUM",payload:{index,num}})
         })
@@ -175,26 +167,17 @@ const removeItemAction =(id,index)=>dispatch=>{
         .then(res=>res.json())
         .then(data=>{
             Toast.hide();
-
             //派发action
             dispatch({type:"CART_DEL_ITEM",payload:{index}})
         })
         .catch(e=>console.log(e))
 };
-
-
 export default connect((state)=>{
     return {
         allSelected:state.cartReducer.allSelected,
         cartData:state.cartReducer.cartData
     }
 })(Cart)
-
-
-
-
-
-
 
 // const LoginIndex =()=>{
 //     return <div className="shop-car-box">
