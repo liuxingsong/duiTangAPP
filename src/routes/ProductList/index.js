@@ -18,6 +18,11 @@ const GridProducListData = [
 	{img:"https://b-ssl.duitang.com/uploads/item/201706/13/20170613100704_3nsuM.thumb.400_0.jpeg",name:"萌宠"},
 	{img:"https://b-ssl.duitang.com/uploads/item/201706/08/20170608110231_CuHry.thumb.400_0.jpeg",name:"头像表情"}
 ]
+const AttentionListData = [
+	{img:"https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",name:"堆糖文化",txt:"堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩"},
+	{img:"https://b-ssl.duitang.com/uploads/item/201603/05/20160305191630_QSGfw.thumb.400_0.jpeg",name:"美容美妆",txt:"堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩"},
+	{img:"https://a-ssl.duitang.com/uploads/item/201506/22/20150622125528_cHydX.thumb.400_0.jpeg",name:"美发造型",txt:"堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩堆糖club提供给你不一样的精彩"}
+]
 
 
 const data = Array.from(new Array(12)).map((_val, i) => ({
@@ -32,13 +37,37 @@ function callback(key) {
 function handleTabClick(key) {
   console.log('onTabClick', key);
 }
+function setCookie(name,value){
+	var Days = 30;
+	var exp = new Date();
+	exp.setTime(exp.getTime() + Days*24*60*60*1000);
+	document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+}
+var uname,uans;
+var fn=function(ev){
+	var shopName=this.unname;
+	setCookie(uname:shopName,uans:0);
+}
+
 const TabExample = () => (
   <div>
-    <Tabs className="tabs1" defaultActiveKey="2" onChange={callback} onTabClick={handleTabClick}>
+    <Tabs className="tabs1" defaultActiveKey="3" onChange={callback} onTabClick={handleTabClick}>
       <TabPane tab="内容" key="1" className={style.proTabName}>
         <div className={style.proTabConent}>
-        	
-		    <Grid data={data} columnNum={3} hasLine={false} onClick={(ele, index) => alert(GridProducListData[index].name)}/>
+		    <Grid data={GridProducListData}
+		      columnNum={3}
+		      hasLine={false}
+		      renderItem={(ele, index) => (
+		      	<Link to={`/detailCon/${ele.name}`}>
+			        <div className={style.GridB}>
+			        	<img src={ele.img} className={style.GridImg} alt="icon" />
+			          	<div className={style.GridS}>
+			            	<span>{ele.name}</span>
+			          	</div>
+			        </div>
+		        </Link>
+		      )}
+		    />
           
         </div>
       </TabPane>
@@ -48,7 +77,7 @@ const TabExample = () => (
             <ul>
                 {
             	GridProducListData.map((ele,index)=><li key={index}>
-            		<Link to={`/detailCon`}>
+            		<Link to={`/detailCon/${ele.name}`} onClick={fn} unname={ele.name}>
             			<img src={ele.img} />
             		</Link>
             		<p>{ele.name}</p>
@@ -60,7 +89,21 @@ const TabExample = () => (
       </TabPane>
       <TabPane tab="关注" key="3" className={style.proTabName}>
         <div className={style.proTabAttention}>
-          选项卡三内容
+          {
+          	<ul>
+                {
+            	AttentionListData.map((ele,index)=><li key={index}>
+            		<Link to={`/detailCon/${ele.name}`} onClick={fn} unname={ele.name}>
+	            		<div className={style.attenImg}><img src={ele.img} /></div>
+	            		<div className={style.atten}>
+	            			<span>{ele.name}</span>
+	            			<p>{ele.txt}</p>
+	            		</div>		
+            		</Link>
+            	</li>)
+                }
+            </ul>
+          }
         </div>
       </TabPane>
     </Tabs>
