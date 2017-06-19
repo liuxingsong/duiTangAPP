@@ -29,12 +29,57 @@
 	margin:10px;
 }
 .proTabAttention{
-	display: 'flex';
-	alignItems: 'center';
-	justifyContent: 'center';
+	display: flex;
+	alignItems: center;
+	justifyContent: center;
 	-height: 600px;
 	min-height: 600px;
 	background:#fff;
+}
+.proTabAttention ul li{
+	list-style: none;
+	border-bottom: 1px solid #ddd;
+	display: flex;
+	height:200px;
+}
+.proTabAttention ul li .attenImg{
+	width:120px;
+	height:120px;
+	margin:10px;
+	float: left;
+}
+.proTabAttention ul li .atten{
+	float: left;
+	width:450px;
+	padding:10px 0 0 10px;
+}
+.proTabAttention ul li .atten span{
+	font-size: 36px;
+	color:#222;
+}
+.proTabAttention ul li .atten p{
+	font-size: 26px;
+	color:#626262;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	height:60px;
+	/*white-space: nowrap;*/
+	text-indent: 2em;
+	padding-right:20px;
+}
+.GridB{
+	margin: 20px;
+	textAlign:center
+}
+.GridS{
+	padding:4px;
+}
+.GridS span{
+	font-size: 30px;
+}
+.GridImg{
+	width:50%;
+	margin:10px;
 }
 :global(.tabs1 .am-tabs-tab-active){
 	color: red;
