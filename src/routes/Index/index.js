@@ -9,7 +9,6 @@ import fetchJsonp from "fetch-jsonp"
 
 import {Link}  from "react-router"
 
-// import { createForm } from 'rc-form';
 
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -24,11 +23,11 @@ function handleTabClick(key) {
   console.log('onTabClick', key);
 }
 const TabListData = [
-		{
+		{	
 			name:"美容时尚",
 			neirong:{txt:"羡慕她们牛仔裤穿的美，其实你只是鞋子没选对",url:"https://b-ssl.duitang.com/uploads/item/201603/05/20160305191630_QSGfw.thumb.400_0.jpeg"}
 		},
-		{
+		{	
 			name:"美食手札",
 			neirong:{txt:"这样的水煮鱼，低热量超健康！",url:"https://b-ssl.duitang.com/uploads/blog/201504/11/20150411165439_WBXKZ.thumb.400_0.jpeg"}
 		},
@@ -52,7 +51,7 @@ const makeTabPane1 = (key) => (
 	    		<dd>{TabListData[key].neirong.txt}</dd>
 	    	</dl>
 	    </div>
-	  </TabPane>
+	  </TabPane> 
 );
 const makeMultiTabPane = (count) => {
   const result = [];
@@ -89,10 +88,10 @@ class Index extends Component {
    }
     render(){
         const hProp = this.state.initialHeight ? { height: this.state.initialHeight } : {};
-
+        
         return (
             <div>
-             	<NavBar
+             	<NavBar 
                iconName={false}
                 mode="light"
 //              onLeftClick={() => console.log('onLeftClick')}
@@ -158,7 +157,7 @@ class Index extends Component {
             </div>
         )
     }
-
+    
 }
 
 
