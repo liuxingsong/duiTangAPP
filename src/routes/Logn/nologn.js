@@ -3,12 +3,13 @@
  */
 import React, {Component} from 'react';
 import {Link} from "react-router"
-import "./logn.css"
+import {style} from "./logn.css"
+import {connect} from 'react-redux';
 import Mine from "../Mine/mine";
 
 
 const NologinIndex =()=>{
-    return <div>
+    return <div id="nologin">
         <header className="Mine-header">我<a className="iconfont">&#xe620;</a></header>
         <div className="No-login-index">
             <ul>
@@ -33,11 +34,23 @@ const NologinIndex =()=>{
 };
 
 class NologinPage extends Component{
+    componentWillUpdate(){
+
+    }
+
     render(){
         return <div>
-            <NologinIndex/>
+            {this.props.loginState?<Mine />:<NologinIndex />}
         </div>
     }
+
+
 }
 
-export default NologinPage
+export default connect((state)=>{
+    return {
+        loginState:state.loginReducer.loginState,
+        usename:state.loginReducer.usename,
+        usepassword:state.loginReducer.usepassword
+    }
+})(NologinPage)

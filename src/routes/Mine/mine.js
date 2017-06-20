@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import "./mine.css"
 
 const MineIndex =()=>{
-    return <div>
+    return <div id="mine">
         <header className="Mine-header">我<a className="iconfont">&#xe620;</a></header>
         <ul className="Mine-list">
             <li className="person border-big">
@@ -62,4 +62,4 @@ class MinePage extends Component{
     }
 }
 
-export default MinePage
+export default MineIndex

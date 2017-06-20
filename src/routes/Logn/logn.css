@@ -20,7 +20,7 @@
 
 :global(.Login-return){float:left;line-height:90px;width:80px;font-size:40px;}
 :global(.Login-header){height: 90px;width:100%;font-size:36px;line-height: 90px;
-    border-bottom: 2px solid rgb(245, 245, 245);
+    border-bottom: 2px solid rgb(245, 245, 245);z-index: 100;
     padding: 0 30px;position:fixed;top:0; background-color: white;box-sizing: border-box;}
 
 :global(.Login-index){position:fixed;top:92px;bottom:0;width:100%;}

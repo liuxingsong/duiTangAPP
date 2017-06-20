@@ -38,34 +38,37 @@ const CartList =({cartData,dispatch})=>{
                         onOpen={() => console.log('global open')}
                         onClose={() => console.log('global close')}
                     >
-                        <Flex  className={style['cart-item']}>
-                            <Checkbox checked={rowData.selected}  onChange={()=>{
-                                //派发 单选的 action
-                                dispatch({
-                                    type:"CHANGE_ITEM_SELECTED",
-                                    payload:{index:i}
-                                })
-                            }} />
-                            <a className={style.pic}><img src={rowData.goodsListImg}/></a>
-                            <Flex.Item>
-                                <p>{rowData.goodsName}</p>
-                                <p>{rowData.price}</p>
-                                <div>
-                                    <Stepper
-                                        style={{ width: '100%', minWidth: '2rem' }}
-                                        showNumber
-                                        max={100}
-                                        min={1}
-                                        useTouch={false}
-                                        value={rowData.number}
-                                        onChange={(num)=>{
-                                            //派发 数量改变的 actioncreator(异步action)
-                                            dispatch(changeCartNum(rowData.goodsID,i,num))
-                                        }}
-                                    />
-                                </div>
-                            </ Flex.Item>
-                        </Flex>
+                        <List.Item>
+                            <Flex  className={style['cart-item']}>
+                                <Checkbox checked={rowData.selected}  onChange={()=>{
+                                    //派发 单选的 action
+                                    dispatch({
+                                        type:"CHANGE_ITEM_SELECTED",
+                                        payload:{index:i}
+                                    })
+                                }} />
+                                <a className={style.pic}><img src={rowData.goodsListImg}/></a>
+                                <Flex.Item>
+                                    <p>{rowData.goodsName}</p>
+                                    <p>{rowData.price}</p>
+                                    <div>
+                                        <Stepper
+                                            style={{ width: '100%', minWidth: '2rem' }}
+                                            showNumber
+                                            max={100}
+                                            min={1}
+                                            useTouch={false}
+                                            value={rowData.number}
+                                            onChange={(num)=>{
+                                                //派发 数量改变的 actioncreator(异步action)
+                                                dispatch(changeCartNum(rowData.goodsID,i,num))
+                                            }}
+                                        />
+                                    </div>
+                                </ Flex.Item>
+                            </Flex>
+                        </List.Item>
+
                     </SwipeAction>
                 </li>)
             }
@@ -85,28 +88,17 @@ class Cart extends Component {
         console.log(total);
         return (
             <div className="cart-page">
-                {/*<NavBar*/}
-                    {/*iconName={null}*/}
-                    {/*leftContent={*/}
-                        {/*<Checkbox checked={allSelected}  onChange={()=>{*/}
-                            {/*//派发全选的action*/}
-                            {/*dispatch({ type:"CHANGE_All_SELECTED"})*/}
-                        {/*}} />*/}
-                    {/*}*/}
-                    {/*mode="light"*/}
-                    {/*onLeftClick={() => console.log('onLeftClick')}*/}
-                    {/*rightContent={[*/}
-                        {/*<Icon key="0" type={require("../../svg/icon-core/map.svg")} />*/}
-                    {/*]}*/}
-                {/*>购物车 {total.num};{total.price}</NavBar>*/}
-                <header className="Login-header"><Link to="/cart" className="iconfont Login-return">&#xe65a;</Link>购物车</header>
+                <header className="Login-header"><Link to="shopping" className="iconfont Login-return">&#xe65a;</Link>购物车</header>
                 <Stepper style={{display:"none" }}/>
                 <CartList cartData={cartData} dispatch={dispatch} />
-                <footer className="shop-car-footer">
-                    <span className="iconfont choose-all">&#xe7c4;</span>全选
+                <footer className="shop-car-footer" >
+                    <Checkbox checked={allSelected} onChange={()=>{
+                        dispatch({type:"CHANGE_All_SELECTED"});
+                        console.log(allSelected);
+                    }} />全选
                     <a href="javascript:;" className="shop-car-end">结算</a>
                     <div className="shop-car-price">
-                        <p className="shop-car-one">商品总计：<span className="shop-car-allprice">￥0.00</span></p>
+                        <p className="shop-car-one">商品总计：<span className="shop-car-allprice">￥{total.price}</span></p>
                         <p className="shop-car-two">不含邮费</p>
                     </div>
                 </footer>
@@ -148,7 +140,7 @@ const getCartData =()=>dispatch=>{
                 //生成初始的 选中状态
                 ele.selected = false
             });
-            Toast.hide()
+            Toast.hide();
             //派发action
             dispatch({type:"CART_INIT_DATA",payload:{cartData:data}})
         })
@@ -195,30 +187,3 @@ export default connect((state)=>{
 
 
 
-
-// const LoginIndex =()=>{
-//     return <div className="shop-car-box">
-//         <header className="Login-header"><Link to="/cart" className="iconfont Login-return">&#xe65a;</Link>购物车</header>
-//         <div className="shop-car-index">
-//
-//         </div>
-//         <footer className="shop-car-footer">
-//             <span className="iconfont choose-all">&#xe7c4;</span>全选
-//             <a href="javascript:;" className="shop-car-end">结算</a>
-//             <div className="shop-car-price">
-//                 <p className="shop-car-one">商品总计：<span className="shop-car-allprice">￥0.00</span></p>
-//                 <p className="shop-car-two">不含邮费</p>
-//             </div>
-//         </footer>
-//     </div>
-// };
-
-// class LoginPage extends Component{
-//     render(){
-//         return <div>
-//             <LoginIndex/>
-//         </div>
-//     }
-// }
-//
-// export default LoginPage

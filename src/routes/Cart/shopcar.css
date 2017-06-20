@@ -5,12 +5,9 @@
 
 .pic img {width: 200px; height: 200px; display: block}
 
-:global(.cart-page .am-navbar) { position: fixed; width: 100%; z-index: 90}
 
 
-
-
-:global(.shop-car-footer){position:fixed;bottom:0;width:100%;line-height:90px;background-color:white;}
+:global(.shop-car-footer){position:fixed;bottom:0;width:100%;line-height:90px;background-color:white;z-index:100;padding-left:30px;}
 :global(.shop-car-footer .choose-all){float:left;line-height:90px;padding: 0 20px ;
     color:#e64a34;font-size:36px;}
 :global(.shop-car-footer .shop-car-price){float:right;height:90px;padding-right: 20px;}

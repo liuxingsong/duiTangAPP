@@ -77,4 +77,27 @@ const cartReducer = (state={cartData:[1,2,3],allSelected:false},action)=>{
             return state
     }
 };
-export {specialColumnReducer,goToDetailReducer,cartReducer}
+const loginReducer = (state={usename:"",usepassword:"",loginState:false},action)=>{
+    switch(action.type){
+        case "SET_PASSWORD" :
+            const {password} = action.payload;
+            return Object.assign({},state,{
+                usepassword:password
+            });
+
+        case "SET_NAME" :
+            const {name} = action.payload;
+            return Object.assign({},state,{
+                usename:name
+            });
+
+        case "SET_STATE" :
+            const {loginStates} = action.payload;
+            return Object.assign({},state,{
+                loginState:loginStates
+            });
+        default :
+            return state
+    }
+};
+export {specialColumnReducer,goToDetailReducer,cartReducer,loginReducer}
