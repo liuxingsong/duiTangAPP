@@ -13,10 +13,8 @@ const CartList =({cartData,dispatch})=>{
 
     return (
         <ul className={style['cart-list']}>
-
             {
                 cartData.map((rowData,i)=><li key={i}>
-
                     <SwipeAction
                         style={{ backgroundColor: 'gray' }}
                         autoClose
