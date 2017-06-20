@@ -37,9 +37,9 @@ const TabExample = () => (
     <Tabs className="tabs1" defaultActiveKey="2" onChange={callback} onTabClick={handleTabClick}>
       <TabPane tab="内容" key="1" className={style.proTabName}>
         <div className={style.proTabConent}>
-        	
+
 		    <Grid data={data} columnNum={3} hasLine={false} onClick={(ele, index) => alert(GridProducListData[index].name)}/>
-          
+
         </div>
       </TabPane>
       <TabPane tab="社区" key="2" className={style.proTabName}>
@@ -72,7 +72,7 @@ class ProductList extends Component {
 	render(){
 		return(
 			<div>
-				<NavBar 
+				<NavBar
 			        iconName={false}
 			        mode="light"
 			//              onLeftClick={() => console.log('onLeftClick')}
@@ -82,7 +82,7 @@ class ProductList extends Component {
 			        ]}
 			    >堆糖APP</NavBar>
 			    <div className={style.proTab}><TabExample /></div>
-			      
+
 			</div>
 		)
 	}
